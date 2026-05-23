@@ -1,0 +1,879 @@
+/* ==========================================================================
+   Resort Guest & Public Landing Experience — Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Color Palette */
+    --resort-teal: #1a5c4e;
+    --resort-teal-light: #257e6c;
+    --resort-teal-dark: #123e35;
+    --resort-sand: #c8a96e;
+    --resort-sand-light: #dfc89d;
+    --resort-sand-dark: #a8884c;
+    --resort-cream: #faf7f2;
+    --resort-white: #ffffff;
+    --resort-charcoal: #2b302e;
+    --resort-muted: #65706c;
+    
+    /* Layout */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Lato', system-ui, sans-serif;
+    
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    --shadow-sm: 0 4px 6px rgba(26, 92, 78, 0.05);
+    --shadow-md: 0 8px 24px rgba(26, 92, 78, 0.08);
+    --shadow-lg: 0 16px 40px rgba(26, 92, 78, 0.15);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base resets & global styles */
+body {
+    font-family: var(--font-body);
+    background-color: var(--resort-cream);
+    color: var(--resort-charcoal);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--resort-teal-dark);
+    font-weight: 700;
+    margin-top: 0;
+}
+
+a {
+    color: var(--resort-teal);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--resort-sand-dark);
+}
+
+/* Typography Helpers */
+.text-serif {
+    font-family: var(--font-heading);
+}
+
+.text-gold {
+    color: var(--resort-sand);
+}
+
+.text-teal {
+    color: var(--resort-teal);
+}
+
+/* Layout Utilities */
+.section-padding {
+    padding: 90px 0;
+}
+
+.bg-cream {
+    background-color: var(--resort-cream);
+}
+
+.bg-white {
+    background-color: var(--resort-white);
+}
+
+.bg-teal-dark {
+    background-color: var(--resort-teal-dark);
+    color: var(--resort-white);
+}
+
+.bg-teal-dark h1, 
+.bg-teal-dark h2, 
+.bg-teal-dark h3, 
+.bg-teal-dark h4 {
+    color: var(--resort-white);
+}
+
+/* Section Header styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 2.75rem;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: var(--resort-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.accent-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--resort-sand);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* Sticky Top Navigation Bar */
+.resort-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    background: rgba(26, 92, 78, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+    padding: 15px 0;
+    transition: var(--transition-smooth);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--resort-white) !important;
+}
+
+.navbar-brand span {
+    color: var(--resort-sand);
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    padding: 8px 16px !important;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--resort-sand) !important;
+}
+
+.nav-btn {
+    border: 1px solid var(--resort-sand);
+    border-radius: 30px;
+    padding: 6px 20px !important;
+    margin-left: 10px;
+    color: var(--resort-white) !important;
+    transition: var(--transition-smooth);
+}
+
+.nav-btn:hover {
+    background-color: var(--resort-sand);
+    color: var(--resort-teal-dark) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    color: var(--resort-white);
+    margin-top: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(18, 62, 53, 0.85) 0%, rgba(26, 92, 78, 0.4) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--resort-sand);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    color: var(--resort-white);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+}
+
+/* Resort Buttons */
+.btn-resort {
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+    border: none;
+    display: inline-block;
+}
+
+.btn-resort-primary {
+    background-color: var(--resort-sand);
+    color: var(--resort-teal-dark);
+}
+
+.btn-resort-primary:hover {
+    background-color: var(--resort-white);
+    color: var(--resort-teal-dark);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-resort-outline {
+    border: 2px solid var(--resort-white);
+    color: var(--resort-white);
+    background: transparent;
+}
+
+.btn-resort-outline:hover {
+    background-color: var(--resort-white);
+    color: var(--resort-teal-dark);
+}
+
+.btn-resort-teal {
+    background-color: var(--resort-teal);
+    color: var(--resort-white);
+}
+
+.btn-resort-teal:hover {
+    background-color: var(--resort-teal-dark);
+    color: var(--resort-white);
+    box-shadow: var(--shadow-md);
+}
+
+/* Resort Cards (Rooms & Packages) */
+.resort-card {
+    background-color: var(--resort-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(26, 92, 78, 0.05);
+}
+
+.resort-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.resort-card-img-wrapper {
+    position: relative;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+}
+
+.resort-card-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--resort-sand);
+    color: var(--resort-teal-dark);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.resort-card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.resort-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    transition: var(--transition-smooth);
+}
+
+.resort-card:hover .resort-card-title {
+    color: var(--resort-sand-dark);
+}
+
+.resort-card-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: var(--resort-muted);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.resort-card-meta i, .resort-card-meta svg {
+    margin-right: 4px;
+    color: var(--resort-sand);
+}
+
+.resort-card-text {
+    color: var(--resort-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.resort-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(26, 92, 78, 0.08);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.resort-card-price {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--resort-teal-dark);
+}
+
+.resort-card-price span {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--resort-muted);
+    font-weight: 400;
+}
+
+/* Package Inclusions list in Card */
+.inclusions-list {
+    background-color: var(--resort-cream);
+    border-radius: var(--radius-sm);
+    padding: 15px 20px;
+    list-style: none;
+    margin: 0 0 20px 0;
+}
+
+.inclusions-list li {
+    font-size: 0.85rem;
+    color: var(--resort-charcoal);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.inclusions-list li:last-child {
+    margin-bottom: 0;
+}
+
+.inclusions-list li::before {
+    content: "✓";
+    color: var(--resort-teal);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+/* Amenities Card */
+.amenity-card {
+    background-color: var(--resort-white);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    border-bottom: 3px solid transparent;
+}
+
+.amenity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-bottom-color: var(--resort-sand);
+}
+
+.amenity-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(26, 92, 78, 0.08);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--resort-teal);
+    margin-bottom: 20px;
+    transition: var(--transition-smooth);
+}
+
+.amenity-card:hover .amenity-icon {
+    background: var(--resort-teal);
+    color: var(--resort-white);
+}
+
+.amenity-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.amenity-desc {
+    color: var(--resort-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Testimonial Section */
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.testimonial-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.testimonial-author {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--resort-sand);
+}
+
+/* Resort Footer */
+.resort-footer {
+    background-color: #0b241e;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 30px;
+    font-size: 0.9rem;
+    border-top: 2px solid var(--resort-sand);
+}
+
+.footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--resort-white);
+    margin-bottom: 20px;
+}
+
+.footer-brand span {
+    color: var(--resort-sand);
+}
+
+.footer-desc {
+    margin-bottom: 25px;
+}
+
+.footer-title {
+    color: var(--resort-white);
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+    color: var(--resort-sand);
+    padding-left: 5px;
+}
+
+.footer-contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-info li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-contact-info i, .footer-contact-info svg {
+    color: var(--resort-sand);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 60px;
+    padding-top: 30px;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Portal Experience (replacing sidebar layouts for guest dashboard)
+   ========================================================================== */
+
+.portal-container {
+    max-width: 1200px;
+    margin: 120px auto 60px;
+    padding: 0 20px;
+}
+
+/* Portal Banner welcome */
+.portal-banner {
+    position: relative;
+    background: linear-gradient(135deg, var(--resort-teal-dark) 0%, var(--resort-teal) 100%);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    color: var(--resort-white);
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.portal-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 350px;
+    background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    mix-blend-mode: overlay;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.portal-banner h1 {
+    color: var(--resort-white);
+    font-size: 2.25rem;
+    margin-bottom: 10px;
+}
+
+.portal-banner p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* Portal Stat Cards */
+.portal-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.portal-stat-card {
+    background: var(--resort-white);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border: 1px solid rgba(26, 92, 78, 0.06);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition-smooth);
+}
+
+.portal-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.portal-stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(26, 92, 78, 0.06);
+    color: var(--resort-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+}
+
+.portal-stat-icon.warning {
+    background: rgba(200, 169, 110, 0.15);
+    color: var(--resort-sand-dark);
+}
+
+.portal-stat-details h4 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--resort-muted);
+    margin: 0 0 4px 0;
+}
+
+.portal-stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--resort-teal-dark);
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* Portal Section Title */
+.portal-section-title {
+    font-size: 1.75rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portal-section-title span {
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+/* Reservation Cards (my reservations redesign) */
+.reservation-card {
+    background: var(--resort-white);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(26, 92, 78, 0.06);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition-smooth);
+}
+
+.reservation-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(200, 169, 110, 0.2);
+}
+
+.reservation-main {
+    flex: 1;
+    min-width: 250px;
+}
+
+.reservation-room-name {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+}
+
+.reservation-dates {
+    font-size: 0.9rem;
+    color: var(--resort-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reservation-price {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--resort-teal);
+    min-width: 130px;
+}
+
+.reservation-status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    min-width: 100px;
+}
+
+.status-pending {
+    background: rgba(200, 169, 110, 0.15);
+    color: var(--resort-sand-dark);
+}
+
+.status-approved {
+    background: rgba(26, 92, 78, 0.08);
+    color: var(--resort-teal);
+}
+
+.status-rejected {
+    background: rgba(192, 57, 43, 0.08);
+    color: #c0392b;
+}
+
+.status-cancelled {
+    background: rgba(101, 112, 108, 0.1);
+    color: var(--resort-muted);
+}
+
+/* Interactive forms styling */
+.portal-form-card {
+    background: var(--resort-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(26, 92, 78, 0.05);
+    padding: 40px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--resort-sand);
+    box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.15);
+}
+
+.booking-summary-box {
+    background: var(--resort-cream);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    border: 1px solid rgba(200, 169, 110, 0.2);
+}
+
+.booking-summary-box h3 {
+    font-size: 1.35rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(26, 92, 78, 0.1);
+    padding-bottom: 12px;
+}
+
+.booking-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: var(--resort-muted);
+}
+
+.booking-summary-row.total {
+    border-top: 1px dashed rgba(26, 92, 78, 0.15);
+    padding-top: 15px;
+    margin-top: 15px;
+    font-weight: 700;
+    color: var(--resort-teal-dark);
+}
+
+.booking-summary-row.total .price-amount {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--resort-teal);
+}
+
+/* User profile drop menu navbar */
+.navbar-user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--resort-white);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+}
+
+.navbar-user-trigger:hover {
+    color: var(--resort-sand);
+}
+
+.navbar-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--resort-sand);
+    color: var(--resort-teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Responsive portal design */
+@media (max-width: 991px) {
+    .portal-banner {
+        padding: 30px;
+    }
+    .portal-banner::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.75rem;
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    .reservation-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .reservation-price {
+        width: 100%;
+    }
+    .portal-form-card {
+        padding: 25px;
+    }
+}
