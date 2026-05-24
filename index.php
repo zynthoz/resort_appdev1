@@ -15,7 +15,7 @@ if ($is_logged_in) {
 }
 
 // Fetch accommodations
-$rooms_query = "SELECT * FROM tbl_accommodations WHERE availability_status = 'available' LIMIT 3";
+$rooms_query = "SELECT * FROM tbl_accommodations WHERE availability_status = 'available' ORDER BY accommodation_id DESC";
 $rooms_result = mysqli_query($conn, $rooms_query);
 
 // Fetch packages
@@ -207,7 +207,11 @@ function get_amenity_svg($name) {
             </div>
 
             <div class="text-center mt-5">
-                <a href="login.php" class="btn-resort btn-resort-teal">View All Accommodations</a>
+                <?php if ($is_logged_in): ?>
+                    <a href="customer/rooms.php" class="btn-resort btn-resort-teal">View All Accommodations</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn-resort btn-resort-teal">View All Accommodations</a>
+                <?php endif; ?>
             </div>
         </div>
     </section>
